@@ -1,0 +1,51 @@
+<form (ngSubmit)="onSubmit()">
+<div class="animated fadeIn">
+    <div class="row">
+      <div class="col-sm-12 text">
+          <div class="card-body">
+              <table class="table table-sm">
+                <thead>
+                  <tr>
+                    <th>Claim Request</th>
+                    <th>Policy Number</th>
+                    <th>Policy Holder Name</th>                    
+                    <th>Policy Date</th>
+                    <th>Place</th>
+                    <th>Description</th>
+                    <th>Status</th>
+                    <th></th>
+                    <th></th>
+                  </tr>
+                </thead>
+               
+                <tbody>
+                  
+                  
+                    
+                  <tr  *ngFor='let claim of claimDetails| paginate : {itemsPerPage:5,currentPage:p};'>
+                    
+                   
+                    <td>{{claim.claim_no}}</td>
+                    <td>{{claim.policy_no}}</td>
+                    <td>{{claim.holder_name}}</td>
+                    <td>{{claim.date}}</td>
+                    <td>{{claim.place}}</td>
+                    <td>{{claim.description}}</td>
+                    <td> <span class="badge badge-success">Active</span></td>
+                   
+                  </tr>
+                  
+                </tbody>
+              </table>
+              
+          <pagination-controls (pageChange)="p=$event"></pagination-controls>
+          <button class="btn btn-primary btn-lg" style="margin-left: 86%;" >Submit</button>
+            </div>
+          
+          </div>
+        </div>
+      
+  
+    
+  </div>
+</form>   

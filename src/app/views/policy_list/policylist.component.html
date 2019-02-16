@@ -1,0 +1,49 @@
+<div class="animated fadeIn">
+    <div class="row">
+      <div class="col-sm-12 text">
+          <div class="card-body">
+              <table class="table table-sm">
+                <thead>
+                  <tr>
+                    <th>Policy No</th>
+                    <th>Policy Name</th>
+                    
+                    <th>Policy Date</th>
+                    <th>Renew Date</th>
+                    <!-- <th>Description</th> -->
+                    <th>Status</th>
+                    <th></th>
+                    <th></th>
+                  </tr>
+                </thead>
+               
+                <tbody>
+                  
+                  
+                    <tr  *ngFor='let policy of policyDetails| paginate : {itemsPerPage:5,currentPage:p};'>
+                    
+                    
+                    <td>{{policy.policy_no}}</td>
+                    <td>{{policy.policy_name}}</td>
+                    <td>{{policy.date_of_policy_taken}}</td>
+                    <td>{{policy.expiry_date}}</td>
+                    
+                    <td></td>
+                    <td> <span class="badge badge-success">Active</span></td>
+                   
+                    <td><button (click)="renew(policy_no)" class="badge badge-success">Renew</button><button  (click)="claim(policy.policy_no)" class="badge badge-danger">Claim</button></td>
+                    <!-- <app-claim [policy_no]="policy.policy_no"   ></app-claim> -->
+                    </tr>
+                </tbody>
+              </table>
+              
+          <pagination-controls (pageChange)="p=$event"></pagination-controls>
+            </div>
+          
+          </div>
+        </div>
+      
+  
+    
+  </div>
+     

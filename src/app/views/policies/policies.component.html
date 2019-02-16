@@ -1,0 +1,68 @@
+<div class="jumbotron ">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 offset-md-3 text">
+                <h3>Policy Form</h3>
+                <form [formGroup]="policyForm"  class="needs-validation" novalidate >
+                    <input type="hidden" formControlName="policy_no">
+                   
+                    
+                    <div class="form-group">
+                        <label>Policy Name</label>
+                        <input type="text" formControlName="policy_name" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.policy_name.errors }" />
+                        <div *ngIf="submitted && f.policy_name.errors" class="invalid-feedback">
+                            <div *ngIf="f.policy_name.errors.required">Policy Name is required</div>
+                            
+                        </div>
+                    </div>
+  
+                    <div class="form-group">
+                      <label>Date Of Policy Taken</label>
+                      <input type="date" formControlName="date_of_policy_taken" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.date_of_policy_taken.errors }" />
+                      <div *ngIf="submitted && f.date_of_policy_taken.errors" class="invalid-feedback">
+                          <div *ngIf="f.date_of_policy_taken.errors.required">Date is required</div>
+                      </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label>Expiry Date Of Policy </label>
+                    <input type="date" formControlName="expiry_date" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.expiry_date.errors }" />
+                    <div *ngIf="submitted && f.expiry_date.errors" class="invalid-feedback">
+                        <div *ngIf="f.expiry_date.errors.required">Mendatory</div>
+                    </div>
+                </div>
+  
+                  <div class="form-group">
+                    <label>Contact No</label>
+                    <input type="number" formControlName="number" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.number.errors }" />
+                    <div *ngIf="submitted && f.number.errors" class="invalid-feedback">
+                        <div *ngIf="f.number.errors.required">DOB is required</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Policy Amount</label>
+                    <input type="number" formControlName="policy_amt" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.policy_amt.errors }" />
+                    <div *ngIf="submitted && f.policy_amt.errors" class="invalid-feedback">
+                        <div *ngIf="f.policy_amt.errors.required">Mendatory</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Claim Amount(in percent)</label>
+                    <input type="number" formControlName="claim_amt" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.claim_amt.errors }" />
+                    <div *ngIf="submitted && f.claim_amt.errors" class="invalid-feedback">
+                        <div *ngIf="f.claim_amt.errors.required">Mendatory</div>
+                    </div>
+                </div>
+        
+          
+                    <div class="form-group">
+                        <button class="btn btn-primary" (click)="onSubmit()">Continue</button>
+                        
+                    </div>
+  
+                    
+                </form>
+            </div>
+        </div>
+    </div>
+  </div>

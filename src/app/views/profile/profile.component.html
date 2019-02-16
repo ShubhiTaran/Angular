@@ -1,0 +1,74 @@
+<!-- main app container -->
+<div class="jumbotron ">
+  <div class="container">
+      <div class="row">
+          <div class="col-md-6 offset-md-3 text">
+              <h3>Profile</h3>
+              <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+                  <div class="form-group">
+                      <label>Full Name</label>
+                      <input type="text" formControlName="firstName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" />
+                      <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+                          <div *ngIf="f.firstName.errors.required">First Name is required</div>
+                      </div>
+                  </div>
+                  
+                  <div class="form-group">
+                      <label>EmailId</label>
+                      <input type="text" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+                      <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                          <div *ngIf="f.email.errors.required">Email is required</div>
+                          <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+                      </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label>DOB</label>
+                    <input type="date" formControlName="dob" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.dob.errors }" />
+                    <div *ngIf="submitted && f.dob.errors" class="invalid-feedback">
+                        <div *ngIf="f.dob.errors.required">DOB is required</div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                  <label>Contact No</label>
+                  <input type="number" formControlName="number" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.number.errors }" />
+                  <div *ngIf="submitted && f.number.errors" class="invalid-feedback">
+                      <div *ngIf="f.number.errors.required">DOB is required</div>
+                  </div>
+              </div>
+              <div class="form-group">
+               
+                    <label for="gender">Gender</label>
+                    <select formControlName="gender" class="form-control">
+                      <option selected>Choose...</option>
+                      <option value="male">Male</option>
+                      <option value="female">Female</option>
+                      
+                    </select>
+                  
+                  </div>
+                  <div class="form-group">
+                 
+                    <label for="address_of_owner">Address</label>
+                     <textarea class="form-control" formControlName="address_of_owner"[ngClass]="{ 'is-invalid': submitted && f.address_of_owner.errors }">
+
+                     </textarea>
+                    
+                  </div>
+      
+        
+                  <div class="form-group">
+                      <button class="btn btn-primary" >Continue</button>
+                      <button class="btn btn-primary"style="margin-left: 2%">Reset</button>
+                  </div>
+
+                 
+              </form>
+          </div>
+      </div>
+  </div>
+</div>
+
+<!-- credits -->
+

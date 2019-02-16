@@ -1,0 +1,102 @@
+<form (ngSubmit)="onSubmit()" [formGroup]="claimform" class="needs-validation" novalidate>
+ 
+<div class="card">
+    <div class="card-header text-white bg-dark">Policy Holder Information</div>
+    <div class="card-body">
+        
+            <div class="form-row">
+              
+              <div class="col-md-4 mb-3 formGroup">
+                <label>Policy Holder Name</label>
+                <input type="text" formControlName="holder_name" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.holder_name.errors }" />
+                <div *ngIf="submitted && f.holder_name.errors" class="invalid-feedback">
+                    <div *ngIf="f.holder_name.errors.required">Policy Holder Name is required</div>
+                </div>
+              </div>
+              <div class="col-md-4 mb-3">
+                <label>Policy Number</label>
+                <input type="text" formControlName="policy_no"  class="form-control"  [ngClass]="{ 'is-invalid': submitted && f.number.errors }" />
+              <!-- <app-policy [claim1] (policy_no1)="handlepolicy($event)"></app-policy> -->
+              
+              <!-- <app-policy [policy_no] ="policy_no"></app-policy>  -->
+            
+              </div>
+              <div class="col-md-4 mb-3">
+                <label for="">Correspondense Address</label>
+                <textarea class="form-control" formControlName="address"[ngClass]="{ 'is-invalid': submitted && f.address.errors }"></textarea>
+                
+              </div>
+              
+                <div class="col-md-4 mb-3">
+                  <label>Contact Number</label>
+                  <input type="number" formControlName="number" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.number.errors }" />
+                  <div *ngIf="submitted && f.number.errors" class="invalid-feedback">
+                      <div *ngIf="f.number.errors.required">number is required</div>
+                      <div *ngIf="f.number.errors.minlength">Enter Valid Phone Number</div>
+                  </div>
+                  </div>
+        
+                  
+        
+        
+                    <div class="col-md-4 mb-3">
+                      <label>Email </label>
+                      <input type="text" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+                      <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                          <div *ngIf="f.email.errors.required">Email is required</div>
+                          <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+                      </div>
+                    </div>
+
+                    <div class="col-md-4 mb-3 formGroup">
+                      <label>Occupation</label>
+                      <input type="text" formControlName="occupation" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.occupation.errors }" />
+                      
+                    </div>
+                 </div>
+            
+            
+          
+         
+
+          
+    </div>
+  </div>
+  <div class="card ">
+      <div class="card-header  text-white bg-dark ">Claim Information</div>
+      <div class="card-body">
+          
+              <div class="form-row">
+                  <input type="hidden" formControlName="claim_no">
+                <div class="col-md-4 mb-3 formGroup">
+                  <label>Date/Time of incident</label>
+                  <input type="date" formControlName="date" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.date.errors }" />
+                  <div *ngIf="submitted && f.date.errors" class="invalid-feedback">
+                      <div *ngIf="f.date.errors.required">Mendatory</div>
+                  </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                  <label>Place Of Incident</label>
+                  <input type="text" formControlName="place" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.place.errors }" />
+                  <div *ngIf="submitted && f.place.errors" class="invalid-feedback">
+                      <div *ngIf="f.place.errors.required">Place is required</div>
+                  </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                  <label for="">Description Of Incident</label>
+                  <textarea class="form-control" formControlName="description"[ngClass]="{ 'is-invalid': submitted && f.address.errors }"></textarea>
+                  
+                </div>
+                </div>
+             </div>
+  </div>
+  
+  <button class="btn btn-primary btn-lg" style="margin-left:50%">Submit</button>
+</form>
+
+
+
+  
+ 
+  
+  
